@@ -27,6 +27,7 @@ Requires:	mono
 Requires:	dotnet-gtk-sharp
 Requires:	dotnet-dbus-sharp
 Requires:	gnome-panel
+ExclusiveArch:	%{ix86} amd64 arm hppa ppc s390 sparc sparcv9 sparc64
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -81,10 +82,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/%{name}/*.exe
 %{_libdir}/%{name}/*.config
 %attr(755,root,root) %{_libdir}/%{name}/*.so
-%attr(755,root,root) %{_libdir}/%{name}/*.la
+%{_libdir}/%{name}/*.la
+%dir %{_libdir}/%{name}/Plugins
+%{_libdir}/%{name}/Plugins/*.dll
 %{_libdir}/bonobo/servers/*
 %{_datadir}/gnome-2.0/ui/*
-%{_libdir}/%{name}/Plugins/*.dll
 %{_desktopdir}/*.desktop
 %{_mandir}/man1/tomboy.1*
 %{_pixmapsdir}/*.png
