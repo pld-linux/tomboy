@@ -1,0 +1,11 @@
+diff -urN aa/tomboy-0.2.2/configure.in tomboy-0.2.2/configure.in
+--- aa/tomboy-0.2.2/configure.in	2004-10-15 00:13:31.000000000 +0200
++++ tomboy-0.2.2/configure.in	2004-11-01 18:26:22.895964176 +0100
+@@ -87,6 +87,7 @@
+ AC_OUTPUT([
+ Makefile
+ tomboy.spec
++tomboy.desktop
+ Tomboy/Makefile
+ TrayIcon/Makefile
+ TrayIcon/libtrayicon/Makefile
