@@ -1,4 +1,5 @@
-Summary:	Tomboy is a desktop note-taking application
+Summary:	Tomboy - a desktop note-taking application
+Summary(pl):	Tomboy - aplikacja do notatek na pulpicie
 Name:		tomboy
 Version:	0.2.2
 Release:	1
@@ -26,6 +27,11 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Tomboy is a desktop note-taking application for Linux and Unix. Simple
 and easy to use, but with potential to help you organize the ideas and
 information you deal with every day.
+
+%description -l pl
+Tomboy to aplikacja do notatek na pulpicie dla Linuksa i Uniksa.
+Prosta i ³atwa w u¿yciu, ale z potencja³em pomocy przy organizacji
+pomys³ów i informacji, z którymi musimy siê zmagaæ ka¿dego dnia.
 
 %prep
 %setup -q
