@@ -17,11 +17,16 @@ BuildRequires:	automake
 BuildRequires:	dotnet-dbus-sharp-devel
 BuildRequires:	dotnet-gtk-sharp-devel
 BuildRequires:	gtkspell-devel >= 2.0.5
+BuildRequires:	gnome-panel-devel
 BuildRequires:	intltool >= 0.25
 BuildRequires:	libtool
 BuildRequires:	mono-csharp
 BuildRequires:	pkgconfig
 Requires(post):	GConf2
+Requires:	mono
+Requires:	dotnet-gtk-sharp
+Requires:	dotnet-dbus-sharp
+Requires:	gnome-panel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
