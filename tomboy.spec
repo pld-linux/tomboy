@@ -16,6 +16,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	dotnet-dbus-sharp-devel
 BuildRequires:	dotnet-gtk-sharp-devel
+BuildRequires:	dotnet-gtk-sharp-gnome-devel
 BuildRequires:	gtkspell-devel >= 2.0.5
 BuildRequires:	gnome-panel-devel
 BuildRequires:	intltool >= 0.25
@@ -25,6 +26,7 @@ BuildRequires:	pkgconfig
 Requires(post):	GConf2
 Requires:	mono
 Requires:	dotnet-gtk-sharp
+Requires:	dotnet-gtk-sharp-gnome
 Requires:	dotnet-dbus-sharp
 Requires:	gnome-panel
 ExclusiveArch:	%{ix86} amd64 arm hppa ppc s390 sparc sparcv9 sparc64
