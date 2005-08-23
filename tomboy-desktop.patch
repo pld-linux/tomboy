@@ -1,11 +1,10 @@
-diff -urN aa/tomboy-0.2.2/configure.in tomboy-0.2.2/configure.in
---- aa/tomboy-0.2.2/configure.in	2004-10-15 00:13:31.000000000 +0200
-+++ tomboy-0.2.2/configure.in	2004-11-01 18:26:22.895964176 +0100
-@@ -87,6 +87,7 @@
- AC_OUTPUT([
- Makefile
- tomboy.spec
-+tomboy.desktop
- Tomboy/Makefile
- TrayIcon/Makefile
- TrayIcon/libtrayicon/Makefile
+--- tomboy-0.3.3/data/tomboy.desktop.in.orig	2005-03-09 11:21:00.000000000 +0100
++++ tomboy-0.3.3/data/tomboy.desktop.in	2005-08-23 08:41:48.000000000 +0200
+@@ -1,6 +1,5 @@
+-
+ [Desktop Entry]
+-Version=@VERSION@
++Version=0.3.3
+ Encoding=UTF-8
+ _Name=Tomboy Notes
+ _Comment=Quick and handy note-taker
