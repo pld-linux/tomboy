@@ -7,8 +7,7 @@ License:	GPL
 Group:		X11/Applications
 Source0:	http://www.beatniksoftware.com/tomboy/releases/%{name}-%{version}.tar.gz
 # Source0-md5:	7ad987216b484f747f53aa7f9055a46b
-Source1:	%{name}.desktop
-#Patch0:		%{name}-desktop.patch
+Patch0:		%{name}-desktop.patch
 URL:		http://www.beatniksoftware.com/tomboy/
 BuildRequires:	GConf2-devel
 BuildRequires:	atk-devel >= 1.2.4
@@ -44,7 +43,7 @@ pomys³ów i informacji, z którymi musimy siê zmagaæ ka¿dego dnia.
 
 %prep
 %setup -q
-#%patch0 -p1
+%patch0 -p1
 
 %build
 %{__libtoolize}
@@ -58,12 +57,14 @@ pomys³ów i informacji, z którymi musimy siê zmagaæ ka¿dego dnia.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_desktopdir}
+install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_datadir}/dbus-1/services}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
+cp data/tomboy.desktop $RPM_BUILD_ROOT%{_desktopdir}
+mv -f $RPM_BUILD_ROOT%{_libdir}/dbus-1.0/services/*.service \
+	$RPM_BUILD_ROOT%{_datadir}/dbus-1/services/
 
 %find_lang %{name}
 
@@ -80,16 +81,16 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_sysconfdir}/gconf/schemas/*.schemas
 %dir %{_libdir}/%{name}
-%{_libdir}/%{name}/*.exe
 %{_libdir}/%{name}/*.config
+%{_libdir}/%{name}/*.exe
 %attr(755,root,root) %{_libdir}/%{name}/*.so
 %{_libdir}/%{name}/*.la
 %dir %{_libdir}/%{name}/Plugins
-%{_libdir}/dbus-1.0/services/*.service
-%{_libdir}/%{name}/Plugins/*.dll
-%{_libdir}/bonobo/servers/*
+%{_datadir}/dbus-1/services/*.service
 %{_datadir}/gnome-2.0/ui/*
 %{_desktopdir}/*.desktop
+%{_libdir}/%{name}/Plugins/*.dll
+%{_libdir}/bonobo/servers/*
 %{_mandir}/man1/tomboy.1*
 %{_pixmapsdir}/*.png
 %{_pkgconfigdir}/tomboy-plugins.pc
