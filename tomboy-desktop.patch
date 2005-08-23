@@ -1,5 +1,6 @@
---- tomboy-0.3.3/data/tomboy.desktop.in.orig	2005-03-09 11:21:00.000000000 +0100
-+++ tomboy-0.3.3/data/tomboy.desktop.in	2005-08-23 08:41:48.000000000 +0200
+diff -urN tomboy-0.3.3.orig/data/tomboy.desktop.in tomboy-0.3.3/data/tomboy.desktop.in
+--- tomboy-0.3.3.orig/data/tomboy.desktop.in	2005-08-23 09:34:25.546703880 +0200
++++ tomboy-0.3.3/data/tomboy.desktop.in	2005-08-23 09:36:34.600084784 +0200
 @@ -1,6 +1,5 @@
 -
  [Desktop Entry]
@@ -8,3 +9,13 @@
  Encoding=UTF-8
  _Name=Tomboy Notes
  _Comment=Quick and handy note-taker
+@@ -10,8 +9,7 @@
+ StartupNotify=false
+ Terminal=false
+ Type=Application
+-Categories=Application;Utility;
+-OnlyShowIn=KDE;
++Categories=GTK;GNOME;Utility;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=tomboy
+ X-GNOME-Bugzilla-Component=General
