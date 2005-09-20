@@ -2,12 +2,13 @@ Summary:	Tomboy - a desktop note-taking application
 Summary(pl):	Tomboy - aplikacja do notatek na pulpicie
 Name:		tomboy
 Version:	0.3.3
-Release:	2
+Release:	3
 License:	LGPL v2.1
 Group:		X11/Applications
 Source0:	http://www.beatniksoftware.com/tomboy/releases/%{name}-%{version}.tar.gz
 # Source0-md5:	7ad987216b484f747f53aa7f9055a46b
 Patch0:		%{name}-desktop.patch
+Patch1:		%{name}-Trie.patch
 URL:		http://www.beatniksoftware.com/tomboy/
 BuildRequires:	GConf2-devel
 BuildRequires:	atk-devel >= 1.2.4
@@ -45,6 +46,7 @@ pomys³ów i informacji, z którymi musimy siê zmagaæ ka¿dego dnia.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__libtoolize}
