@@ -1,3 +1,4 @@
+%include	/usr/lib/rpm/macros.mono
 Summary:	Tomboy - a desktop note-taking application
 Summary(pl):	Tomboy - aplikacja do notatek na pulpicie
 Name:		tomboy
@@ -24,10 +25,6 @@ BuildRequires:	mono-csharp
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 Requires(post,preun):	GConf2
-Requires:	mono
-Requires:	dotnet-dbus-sharp
-Requires:	dotnet-gtk-sharp
-Requires:	dotnet-gtk-sharp-gnome
 ExclusiveArch:	%{ix86} %{x8664} alpha arm hppa ppc s390 sparc sparcv9 sparc64
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
