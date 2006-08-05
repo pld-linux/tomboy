@@ -28,7 +28,6 @@ Requires:	mono
 Requires:	dotnet-dbus-sharp
 Requires:	dotnet-gtk-sharp
 Requires:	dotnet-gtk-sharp-gnome
-Requires:	gnome-panel
 ExclusiveArch:	%{ix86} %{x8664} alpha arm hppa ppc s390 sparc sparcv9 sparc64
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
