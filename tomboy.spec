@@ -4,31 +4,34 @@
 Summary:	Tomboy - a desktop note-taking application
 Summary(pl):	Tomboy - aplikacja do notatek na pulpicie
 Name:		tomboy
-Version:	0.3.9
+Version:	0.4.0
 Release:	1
 License:	LGPL v2.1
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/tomboy/0.3/%{name}-%{version}.tar.bz2
-# Source0-md5:	c3d4f9bf76a1e202b9cf1670667ee5eb
+Source0:	http://ftp.gnome.org/pub/gnome/sources/tomboy/0.4/%{name}-%{version}.tar.bz2
+# Source0-md5:	478cda63b581d55ee90c85d532a8dd97
 Patch0:		%{name}-desktop.patch
 URL:		http://www.beatniksoftware.com/tomboy/
 BuildRequires:	GConf2-devel >= 2.14.0
-BuildRequires:	atk-devel >= 1.12.1
+BuildRequires:	atk-devel >= 1.12.2
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	dotnet-dbus-sharp-devel >= 0.63
-BuildRequires:	dotnet-gtk-sharp2-devel >= 2.9.0
-BuildRequires:	dotnet-gnome-sharp-devel >= 2.15.0
-BuildRequires:	gnome-panel-devel >= 2.15.91
+BuildRequires:	dbus-glib-devel >= 0.71
+BuildRequires:	dotnet-galago-sharp-devel >= 0.5.0
+BuildRequires:	dotnet-gnome-sharp-devel >= 2.16.0
+BuildRequires:	dotnet-gmime-sharp-devel >= 2.2.3
+BuildRequires:	dotnet-gtk-sharp2-devel >= 2.10.0
+BuildRequires:	gnome-panel-devel >= 2.16.0
 BuildRequires:	gtkspell-devel >= 2.0.11
 BuildRequires:	intltool >= 0.35
+BuildRequires:	libgnomeprintui-devel >= 2.12.1
 BuildRequires:	libtool
 BuildRequires:	mono-csharp >= 1.1.16.1
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.197
 BuildRequires:	scrollkeeper
 Requires(post,preun):	GConf2 >= 2.14.0
-Requires(post,postun):	gtk+2 >= 2.10.1
+Requires(post,postun):	gtk+2 >= 2.10.3
 Requires(post,postun):	scrollkeeper
 ExclusiveArch:	%{ix86} %{x8664} alpha arm hppa ppc s390 sparc sparcv9 sparc64
 ExcludeArch:	i386
@@ -64,8 +67,6 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	dbusservicedir="%{_datadir}/dbus-1/services"
-
-#rm -r $RPM_BUILD_ROOT%{_datadir}/locale/no
 
 %find_lang %{name} --with-gnome
 
@@ -103,5 +104,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/tomboy.1*
 %dir %{_omf_dest_dir}/%{name}
 %{_omf_dest_dir}/%{name}/tomboy-C.omf
+%lang(es) %{_omf_dest_dir}/%{name}/tomboy-es.omf
+%lang(sv) %{_omf_dest_dir}/%{name}/tomboy-sv.omf
 %{_pkgconfigdir}/tomboy-plugins.pc
 %{_sysconfdir}/gconf/schemas/tomboy.schemas
