@@ -13,7 +13,7 @@ Source0:	http://ftp.gnome.org/pub/gnome/sources/tomboy/0.4/%{name}-%{version}.ta
 Patch0:		%{name}-desktop.patch
 URL:		http://www.beatniksoftware.com/tomboy/
 BuildRequires:	GConf2-devel >= 2.14.0
-BuildRequires:	atk-devel >= 1.12.2
+BuildRequires:	atk-devel >= 1:1.12.2
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.71
@@ -28,10 +28,11 @@ BuildRequires:	libgnomeprintui-devel >= 2.12.1
 BuildRequires:	libtool
 BuildRequires:	mono-csharp >= 1.1.16.1
 BuildRequires:	pkgconfig
-BuildRequires:	rpmbuild(macros) >= 1.197
+BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
 Requires(post,preun):	GConf2 >= 2.14.0
-Requires(post,postun):	gtk+2 >= 2.10.3
+Requires(post,postun):	gtk+2 >= 2:2.10.3
+Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	scrollkeeper
 ExclusiveArch:	%{ix86} %{x8664} alpha arm hppa ppc s390 sparc sparcv9 sparc64
 ExcludeArch:	i386
