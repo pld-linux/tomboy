@@ -2,7 +2,7 @@
 %include	/usr/lib/rpm/macros.mono
 #
 Summary:	Tomboy - a desktop note-taking application
-Summary(pl):	Tomboy - aplikacja do notatek na pulpicie
+Summary(pl.UTF-8):   Tomboy - aplikacja do notatek na pulpicie
 Name:		tomboy
 Version:	0.4.1
 Release:	1
@@ -43,10 +43,10 @@ Tomboy is a desktop note-taking application for Linux and Unix. Simple
 and easy to use, but with potential to help you organize the ideas and
 information you deal with every day.
 
-%description -l pl
+%description -l pl.UTF-8
 Tomboy to aplikacja do notatek na pulpicie dla Linuksa i Uniksa.
-Prosta i ³atwa w u¿yciu, ale z potencja³em pomocy przy organizacji
-pomys³ów i informacji, z którymi musimy siê zmagaæ ka¿dego dnia.
+Prosta i Å‚atwa w uÅ¼yciu, ale z potencjaÅ‚em pomocy przy organizacji
+pomysÅ‚Ã³w i informacji, z ktÃ³rymi musimy siÄ™ zmagaÄ‡ kaÅ¼dego dnia.
 
 %prep
 %setup -q
