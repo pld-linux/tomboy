@@ -4,36 +4,38 @@
 Summary:	Tomboy - a desktop note-taking application
 Summary(pl.UTF-8):	Tomboy - aplikacja do notatek na pulpicie
 Name:		tomboy
-Version:	0.4.1
+Version:	0.6.0
 Release:	1
 License:	LGPL v2.1
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/tomboy/0.4/%{name}-%{version}.tar.bz2
-# Source0-md5:	40e0f51d832d04f762851fc9a88c01ea
+Source0:	http://ftp.gnome.org/pub/gnome/sources/tomboy/0.6/%{name}-%{version}.tar.bz2
+# Source0-md5:	aebcfa4fb1a1f8d6aeb225dd788751eb
 Patch0:		%{name}-desktop.patch
 URL:		http://www.beatniksoftware.com/tomboy/
-BuildRequires:	GConf2-devel >= 2.14.0
-BuildRequires:	atk-devel >= 1:1.12.2
+BuildRequires:	GConf2-devel >= 2.18.0.1
+BuildRequires:	atk-devel >= 1:1.17.0
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	dbus-glib-devel >= 0.71
+BuildRequires:	dbus-glib-devel >= 0.73
 BuildRequires:	dotnet-galago-sharp-devel >= 0.5.0
-BuildRequires:	dotnet-gnome-sharp-devel >= 2.16.0
 BuildRequires:	dotnet-gmime-sharp-devel >= 2.2.3
+BuildRequires:	dotnet-gnome-sharp-devel >= 2.16.0
 BuildRequires:	dotnet-gtk-sharp2-devel >= 2.10.0
-BuildRequires:	gnome-panel-devel >= 2.16.0
+BuildRequires:	gnome-common >= 2.12.0
+BuildRequires:	gnome-panel-devel >= 2.17.92
+BuildRequires:	gtk+2-devel >= 2:2.10.9
 BuildRequires:	gtkspell-devel >= 2.0.11
-BuildRequires:	intltool >= 0.35
-BuildRequires:	libgnomeprintui-devel >= 2.12.1
+BuildRequires:	intltool >= 0.35.5
+BuildRequires:	libgnomeprintui-devel >= 2.17.92
 BuildRequires:	libtool
 BuildRequires:	mono-csharp >= 1.1.16.1
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
-Requires(post,preun):	GConf2 >= 2.14.0
-Requires(post,postun):	gtk+2 >= 2:2.10.3
+Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	scrollkeeper
+Requires(post,preun):	GConf2
 ExclusiveArch:	%{ix86} %{x8664} alpha arm hppa ppc s390 sparc sparcv9 sparc64
 ExcludeArch:	i386
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -53,6 +55,8 @@ pomysłów i informacji, z którymi musimy się zmagać każdego dnia.
 %patch0 -p1
 
 %build
+%{__glib_gettextize}
+%{__intltoolize}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
@@ -106,6 +110,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_omf_dest_dir}/%{name}
 %{_omf_dest_dir}/%{name}/tomboy-C.omf
 %lang(es) %{_omf_dest_dir}/%{name}/tomboy-es.omf
+%lang(fr) %{_omf_dest_dir}/%{name}/tomboy-fr.omf
 %lang(sv) %{_omf_dest_dir}/%{name}/tomboy-sv.omf
 %{_pkgconfigdir}/tomboy-plugins.pc
 %{_sysconfdir}/gconf/schemas/tomboy.schemas
