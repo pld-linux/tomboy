@@ -4,16 +4,16 @@
 Summary:	Tomboy - a desktop note-taking application
 Summary(pl.UTF-8):	Tomboy - aplikacja do notatek na pulpicie
 Name:		tomboy
-Version:	0.6.0
+Version:	0.6.1
 Release:	1
 License:	LGPL v2.1
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/tomboy/0.6/%{name}-%{version}.tar.bz2
-# Source0-md5:	aebcfa4fb1a1f8d6aeb225dd788751eb
+# Source0-md5:	33e7f6b465055bcc72d6997b5f2a3199
 Patch0:		%{name}-desktop.patch
 URL:		http://www.beatniksoftware.com/tomboy/
 BuildRequires:	GConf2-devel >= 2.18.0.1
-BuildRequires:	atk-devel >= 1:1.17.0
+BuildRequires:	atk-devel >= 1:1.18.0
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.73
@@ -22,11 +22,11 @@ BuildRequires:	dotnet-gmime-sharp-devel >= 2.2.3
 BuildRequires:	dotnet-gnome-sharp-devel >= 2.16.0
 BuildRequires:	dotnet-gtk-sharp2-devel >= 2.10.0
 BuildRequires:	gnome-common >= 2.12.0
-BuildRequires:	gnome-panel-devel >= 2.17.92
-BuildRequires:	gtk+2-devel >= 2:2.10.9
+BuildRequires:	gnome-panel-devel >= 2.18.0
+BuildRequires:	gtk+2-devel >= 2:2.10.10
 BuildRequires:	gtkspell-devel >= 2.0.11
 BuildRequires:	intltool >= 0.35.5
-BuildRequires:	libgnomeprintui-devel >= 2.17.92
+BuildRequires:	libgnomeprintui-devel >= 2.18.0
 BuildRequires:	libtool
 BuildRequires:	mono-csharp >= 1.1.16.1
 BuildRequires:	pkgconfig
@@ -109,6 +109,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/tomboy.1*
 %dir %{_omf_dest_dir}/%{name}
 %{_omf_dest_dir}/%{name}/tomboy-C.omf
+%lang(en_GB) %{_omf_dest_dir}/%{name}/tomboy-en_GB.omf
 %lang(es) %{_omf_dest_dir}/%{name}/tomboy-es.omf
 %lang(fr) %{_omf_dest_dir}/%{name}/tomboy-fr.omf
 %lang(sv) %{_omf_dest_dir}/%{name}/tomboy-sv.omf
