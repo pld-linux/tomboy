@@ -4,14 +4,14 @@
 Summary:	Tomboy - a desktop note-taking application
 Summary(pl.UTF-8):	Tomboy - aplikacja do notatek na pulpicie
 Name:		tomboy
-Version:	0.6.3
-Release:	2
+Version:	0.7.5
+Release:	0.1
 License:	LGPL v2.1
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/tomboy/0.6/%{name}-%{version}.tar.bz2
-# Source0-md5:	ebf93b189c7db91037e351c1f7c33ba3
-Patch0:		%{name}-desktop.patch
-Patch1:		%{name}-dbus.patch
+Source0:	http://ftp.gnome.org/pub/gnome/sources/tomboy/0.7/%{name}-%{version}.tar.bz2
+# Source0-md5:	b286fd67cc420005d13ea1fd91238a62
+#Patch0:		%{name}-desktop.patch
+#Patch1:		%{name}-dbus.patch
 URL:		http://www.beatniksoftware.com/tomboy/
 BuildRequires:	GConf2-devel >= 2.18.0.1
 BuildRequires:	atk-devel >= 1:1.18.0
@@ -53,8 +53,8 @@ pomysłów i informacji, z którymi musimy się zmagać każdego dnia.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
+#%patch0 -p1
+#%patch1 -p1
 
 %build
 %{__glib_gettextize}
@@ -99,9 +99,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/%{name}/*.exe
 %attr(755,root,root) %{_libdir}/%{name}/*.so
 %dir %{_libdir}/%{name}
+%{_libdir}/%{name}/*.dll
 %{_libdir}/%{name}/*.config
 %{_libdir}/%{name}/*.la
-%{_libdir}/%{name}/Plugins
+%{_libdir}/%{name}/addins
 %{_libdir}/bonobo/servers/*
 
 %{_datadir}/dbus-1/services/*.service
@@ -111,11 +112,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/tomboy.1*
 %dir %{_omf_dest_dir}/%{name}
 %{_omf_dest_dir}/%{name}/tomboy-C.omf
+%lang(ca) %{_omf_dest_dir}/%{name}/tomboy-ca.omf
 %lang(en_GB) %{_omf_dest_dir}/%{name}/tomboy-en_GB.omf
 %lang(es) %{_omf_dest_dir}/%{name}/tomboy-es.omf
 %lang(fr) %{_omf_dest_dir}/%{name}/tomboy-fr.omf
+%lang(oc) %{_omf_dest_dir}/%{name}/tomboy-oc.omf
 %lang(ru) %{_omf_dest_dir}/%{name}/tomboy-ru.omf
 %lang(sv) %{_omf_dest_dir}/%{name}/tomboy-sv.omf
 %lang(uk) %{_omf_dest_dir}/%{name}/tomboy-uk.omf
-%{_pkgconfigdir}/tomboy-plugins.pc
+%{_pkgconfigdir}/tomboy-addins.pc
 %{_sysconfdir}/gconf/schemas/tomboy.schemas
