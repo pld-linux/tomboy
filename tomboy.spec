@@ -4,29 +4,28 @@
 Summary:	Tomboy - a desktop note-taking application
 Summary(pl.UTF-8):	Tomboy - aplikacja do notatek na pulpicie
 Name:		tomboy
-Version:	0.7.6
-Release:	0.1
+Version:	0.7.8
+Release:	1
 License:	LGPL v2.1
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/tomboy/0.7/%{name}-%{version}.tar.bz2
-# Source0-md5:	f7a7959bbfe1b67c1f5de32eb118a65a
-#Patch0:		%{name}-desktop.patch
-#Patch1:		%{name}-dbus.patch
-URL:		http://www.beatniksoftware.com/tomboy/
-BuildRequires:	GConf2-devel >= 2.18.0.1
-BuildRequires:	atk-devel >= 1:1.18.0
+# Source0-md5:	a5d87649e153d4e7a4a01846c700e66c
+Patch0:		%{name}-dbus.patch
+URL:		http://www.gnome.org/projects/tomboy/
+BuildRequires:	GConf2-devel >= 2.19.1
+BuildRequires:	atk-devel >= 1:1.19.6
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.73
 BuildRequires:	dotnet-galago-sharp-devel >= 0.5.0
 BuildRequires:	dotnet-gmime-sharp-devel >= 2.2.3
 BuildRequires:	dotnet-gnome-sharp-devel >= 2.16.0
-BuildRequires:	dotnet-gtk-sharp2-devel >= 2.10.0
+BuildRequires:	dotnet-gtk-sharp2-devel >= 2.10.2
 BuildRequires:	gnome-common >= 2.18.0
-BuildRequires:	gnome-panel-devel >= 2.18.0
-BuildRequires:	gtk+2-devel >= 2:2.10.10
+BuildRequires:	gnome-panel-devel >= 2.19.92
+BuildRequires:	gtk+2-devel >= 2:2.12.0
 BuildRequires:	gtkspell-devel >= 2.0.11
-BuildRequires:	intltool >= 0.35.5
+BuildRequires:	intltool >= 0.36.1
 BuildRequires:	libgnomeprintui-devel >= 2.18.0
 BuildRequires:	libtool
 BuildRequires:	mono-csharp >= 1.1.16.1
@@ -53,8 +52,7 @@ pomysłów i informacji, z którymi musimy się zmagać każdego dnia.
 
 %prep
 %setup -q
-#%patch0 -p1
-#%patch1 -p1
+%patch0 -p1
 
 %build
 %{__glib_gettextize}
