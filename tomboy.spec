@@ -4,29 +4,28 @@
 Summary:	Tomboy - a desktop note-taking application
 Summary(pl.UTF-8):	Tomboy - aplikacja do notatek na pulpicie
 Name:		tomboy
-Version:	0.6.3
-Release:	2
+Version:	0.8.0
+Release:	1
 License:	LGPL v2.1
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/tomboy/0.6/%{name}-%{version}.tar.bz2
-# Source0-md5:	ebf93b189c7db91037e351c1f7c33ba3
-Patch0:		%{name}-desktop.patch
-Patch1:		%{name}-dbus.patch
-URL:		http://www.beatniksoftware.com/tomboy/
-BuildRequires:	GConf2-devel >= 2.18.0.1
-BuildRequires:	atk-devel >= 1:1.18.0
+Source0:	http://ftp.gnome.org/pub/gnome/sources/tomboy/0.8/%{name}-%{version}.tar.bz2
+# Source0-md5:	b95c8ce7da7571583f33e80d25ac87e6
+Patch0:		%{name}-dbus.patch
+URL:		http://www.gnome.org/projects/tomboy/
+BuildRequires:	GConf2-devel >= 2.19.1
+BuildRequires:	atk-devel >= 1:1.19.6
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.73
 BuildRequires:	dotnet-galago-sharp-devel >= 0.5.0
 BuildRequires:	dotnet-gmime-sharp-devel >= 2.2.3
 BuildRequires:	dotnet-gnome-sharp-devel >= 2.16.0
-BuildRequires:	dotnet-gtk-sharp2-devel >= 2.10.0
+BuildRequires:	dotnet-gtk-sharp2-devel >= 2.10.2
 BuildRequires:	gnome-common >= 2.18.0
-BuildRequires:	gnome-panel-devel >= 2.18.0
-BuildRequires:	gtk+2-devel >= 2:2.10.10
+BuildRequires:	gnome-panel-devel >= 2.19.92
+BuildRequires:	gtk+2-devel >= 2:2.12.0
 BuildRequires:	gtkspell-devel >= 2.0.11
-BuildRequires:	intltool >= 0.35.5
+BuildRequires:	intltool >= 0.36.1
 BuildRequires:	libgnomeprintui-devel >= 2.18.0
 BuildRequires:	libtool
 BuildRequires:	mono-csharp >= 1.1.16.1
@@ -54,7 +53,6 @@ pomysłów i informacji, z którymi musimy się zmagać każdego dnia.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__glib_gettextize}
@@ -99,9 +97,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/%{name}/*.exe
 %attr(755,root,root) %{_libdir}/%{name}/*.so
 %dir %{_libdir}/%{name}
+%{_libdir}/%{name}/*.dll
 %{_libdir}/%{name}/*.config
 %{_libdir}/%{name}/*.la
-%{_libdir}/%{name}/Plugins
+%{_libdir}/%{name}/addins
 %{_libdir}/bonobo/servers/*
 
 %{_datadir}/dbus-1/services/*.service
@@ -111,11 +110,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/tomboy.1*
 %dir %{_omf_dest_dir}/%{name}
 %{_omf_dest_dir}/%{name}/tomboy-C.omf
+%lang(ca) %{_omf_dest_dir}/%{name}/tomboy-ca.omf
 %lang(en_GB) %{_omf_dest_dir}/%{name}/tomboy-en_GB.omf
 %lang(es) %{_omf_dest_dir}/%{name}/tomboy-es.omf
 %lang(fr) %{_omf_dest_dir}/%{name}/tomboy-fr.omf
+%lang(oc) %{_omf_dest_dir}/%{name}/tomboy-oc.omf
 %lang(ru) %{_omf_dest_dir}/%{name}/tomboy-ru.omf
 %lang(sv) %{_omf_dest_dir}/%{name}/tomboy-sv.omf
 %lang(uk) %{_omf_dest_dir}/%{name}/tomboy-uk.omf
-%{_pkgconfigdir}/tomboy-plugins.pc
+%{_pkgconfigdir}/tomboy-addins.pc
 %{_sysconfdir}/gconf/schemas/tomboy.schemas
