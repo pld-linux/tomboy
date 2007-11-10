@@ -5,7 +5,7 @@ Summary:	Tomboy - a desktop note-taking application
 Summary(pl.UTF-8):	Tomboy - aplikacja do notatek na pulpicie
 Name:		tomboy
 Version:	0.8.1
-Release:	1
+Release:	2
 License:	LGPL v2.1
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/tomboy/0.8/%{name}-%{version}.tar.bz2
@@ -30,12 +30,16 @@ BuildRequires:	libgnomeprintui-devel >= 2.18.1
 BuildRequires:	libtool
 BuildRequires:	mono-csharp >= 1.1.16.1
 BuildRequires:	pkgconfig
+# support for --with-omf in find_lang.sh
+BuildRequires:	rpm-build >= 4.4.9-10
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	scrollkeeper
 Requires(post,preun):	GConf2
+# sr@Latn vs. sr@latin
+Conflicts:	glibc-misc < 6:2.7
 ExclusiveArch:	%{ix86} %{x8664} alpha arm hppa ppc s390 sparc sparcv9 sparc64
 ExcludeArch:	i386
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -53,6 +57,9 @@ pomysłów i informacji, z którymi musimy się zmagać każdego dnia.
 %prep
 %setup -q
 %patch0 -p1
+
+sed -i -e s#sr\@Latn#sr\@latin# po/LINGUAS
+mv po/sr\@{Latn,latin}.po
 
 %build
 %{__glib_gettextize}
@@ -73,7 +80,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	dbusservicedir="%{_datadir}/dbus-1/services"
 
-%find_lang %{name} --with-gnome
+%find_lang %{name} --with-gnome --with-omf
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -108,16 +115,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/*/apps/*
 %{_pixmapsdir}/*.png
 %{_mandir}/man1/tomboy.1*
-%dir %{_omf_dest_dir}/%{name}
-%{_omf_dest_dir}/%{name}/tomboy-C.omf
-%lang(ca) %{_omf_dest_dir}/%{name}/tomboy-ca.omf
-%lang(en_GB) %{_omf_dest_dir}/%{name}/tomboy-en_GB.omf
-%lang(es) %{_omf_dest_dir}/%{name}/tomboy-es.omf
-%lang(fr) %{_omf_dest_dir}/%{name}/tomboy-fr.omf
-%lang(oc) %{_omf_dest_dir}/%{name}/tomboy-oc.omf
-%lang(pt_BR) %{_omf_dest_dir}/%{name}/tomboy-pt_BR.omf
-%lang(ru) %{_omf_dest_dir}/%{name}/tomboy-ru.omf
-%lang(sv) %{_omf_dest_dir}/%{name}/tomboy-sv.omf
-%lang(uk) %{_omf_dest_dir}/%{name}/tomboy-uk.omf
 %{_pkgconfigdir}/tomboy-addins.pc
 %{_sysconfdir}/gconf/schemas/tomboy.schemas
