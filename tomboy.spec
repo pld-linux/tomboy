@@ -28,7 +28,7 @@ BuildRequires:	intltool >= 0.36.2
 BuildRequires:	libgnomeprintui-devel >= 2.18.1
 BuildRequires:	libtool
 BuildRequires:	mono-csharp >= 1.1.16.1
-BuildRequires:	ndesk-dbus-glib
+BuildRequires:	dotnet-ndesk-dbus-glib-sharp
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
