@@ -4,12 +4,12 @@
 Summary:	Tomboy - a desktop note-taking application
 Summary(pl.UTF-8):	Tomboy - aplikacja do notatek na pulpicie
 Name:		tomboy
-Version:	0.8.2
-Release:	3
+Version:	0.9.4
+Release:	1
 License:	LGPL v2.1
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/tomboy/0.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	cca5b43cd1eb6bc6d277b307944ae884
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/tomboy/0.9/%{name}-%{version}.tar.bz2
+# Source0-md5:	03f898f109a124ae7345761c69b073e6
 URL:		http://www.gnome.org/projects/tomboy/
 BuildRequires:	GConf2-devel >= 2.20.0
 BuildRequires:	atk-devel >= 1:1.20.0
@@ -20,6 +20,7 @@ BuildRequires:	dotnet-galago-sharp-devel >= 0.5.0
 BuildRequires:	dotnet-gmime-sharp-devel >= 2.2.3
 BuildRequires:	dotnet-gnome-sharp-devel >= 2.16.0
 BuildRequires:	dotnet-gtk-sharp2-devel >= 2.10.2
+BuildRequires:	dotnet-ndesk-dbus-glib-sharp-devel >= 0.3
 BuildRequires:	gnome-common >= 2.20.0
 BuildRequires:	gnome-panel-devel >= 2.20.0
 BuildRequires:	gtk+2-devel >= 2:2.12.0
@@ -68,6 +69,7 @@ mv po/sr\@{Latn,latin}.po
 %{__autoconf}
 %{__automake}
 %configure \
+	--with-dbus-service-dir="%{_datadir}/dbus-1/services" \
 	--disable-schemas-install \
 	--disable-scrollkeeper
 %{__make}
@@ -76,8 +78,7 @@ mv po/sr\@{Latn,latin}.po
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	dbusservicedir="%{_datadir}/dbus-1/services"
+	DESTDIR=$RPM_BUILD_ROOT
 
 %find_lang %{name} --with-gnome --with-omf
 
