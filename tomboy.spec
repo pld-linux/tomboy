@@ -38,6 +38,7 @@ Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	scrollkeeper
 Requires(post,preun):	GConf2
+Suggests:	galago-daemon
 # sr@Latn vs. sr@latin
 Conflicts:	glibc-misc < 6:2.7
 ExclusiveArch:	%{ix86} %{x8664} alpha arm hppa ppc s390 sparc sparcv9 sparc64
