@@ -4,12 +4,12 @@
 Summary:	Tomboy - a desktop note-taking application
 Summary(pl.UTF-8):	Tomboy - aplikacja do notatek na pulpicie
 Name:		tomboy
-Version:	0.9.5
+Version:	0.9.7
 Release:	1
 License:	LGPL v2.1
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/tomboy/0.9/%{name}-%{version}.tar.bz2
-# Source0-md5:	8a4984028b0da2283e50247cb2782256
+# Source0-md5:	aeb838a5e7d5b36b270fb4b4c5b8da63
 URL:		http://www.gnome.org/projects/tomboy/
 BuildRequires:	GConf2-devel >= 2.20.0
 BuildRequires:	atk-devel >= 1:1.20.0
@@ -103,17 +103,16 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %attr(755,root,root) %{_libdir}/%{name}/*.exe
 %attr(755,root,root) %{_libdir}/%{name}/*.so
+%{_datadir}/%{name}
 %dir %{_libdir}/%{name}
 %{_libdir}/%{name}/*.dll
 %{_libdir}/%{name}/*.config
 %{_libdir}/%{name}/*.la
 %{_libdir}/%{name}/addins
 %{_libdir}/bonobo/servers/*
-
 %{_datadir}/dbus-1/services/*.service
 %{_desktopdir}/*.desktop
 %{_iconsdir}/hicolor/*/apps/*
-%{_pixmapsdir}/*.png
 %{_mandir}/man1/tomboy.1*
 %{_pkgconfigdir}/tomboy-addins.pc
 %{_sysconfdir}/gconf/schemas/tomboy.schemas
