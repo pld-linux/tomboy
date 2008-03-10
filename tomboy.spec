@@ -4,12 +4,13 @@
 Summary:	Tomboy - a desktop note-taking application
 Summary(pl.UTF-8):	Tomboy - aplikacja do notatek na pulpicie
 Name:		tomboy
-Version:	0.9.8
+Version:	0.10.0
 Release:	1
 License:	LGPL v2.1
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/tomboy/0.9/%{name}-%{version}.tar.bz2
-# Source0-md5:	e091169130f3af024148f25d7fe4aba3
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/tomboy/0.10/%{name}-%{version}.tar.bz2
+# Source0-md5:	cf200d49beae64260b9e029b6dcc579a
+Patch0:		%{name}-configure.patch
 URL:		http://www.gnome.org/projects/tomboy/
 BuildRequires:	GConf2-devel >= 2.20.0
 BuildRequires:	atk-devel >= 1:1.20.0
@@ -28,6 +29,7 @@ BuildRequires:	gtkspell-devel >= 2.0.11
 BuildRequires:	intltool >= 0.36.2
 BuildRequires:	libgnomeprintui-devel >= 2.18.1
 BuildRequires:	libtool
+BuildRequires:	mono-addins-devel >= 0.3
 BuildRequires:	mono-csharp >= 1.1.16.1
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
@@ -57,6 +59,7 @@ pomysłów i informacji, z którymi musimy się zmagać każdego dnia.
 
 %prep
 %setup -q
+%patch0 -p1
 
 sed -i -e 's#sr\@Latn#sr\@latin#' po/LINGUAS
 mv po/sr\@{Latn,latin}.po
@@ -105,7 +108,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/%{name}/*.so
 %{_datadir}/%{name}
 %dir %{_libdir}/%{name}
-%{_libdir}/%{name}/*.dll
 %{_libdir}/%{name}/*.config
 %{_libdir}/%{name}/*.la
 %{_libdir}/%{name}/addins
