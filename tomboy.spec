@@ -59,7 +59,7 @@ pomysłów i informacji, z którymi musimy się zmagać każdego dnia.
 %prep
 %setup -q
 
-sed -i -e 's#sr\@Latn#sr\@latin#' po/LINGUAS
+%{__sed} -i -e 's#sr\@Latn#sr\@latin#' po/LINGUAS
 mv po/sr\@{Latn,latin}.po
 
 %build
