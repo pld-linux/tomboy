@@ -4,28 +4,30 @@
 Summary:	Tomboy - a desktop note-taking application
 Summary(pl.UTF-8):	Tomboy - aplikacja do notatek na pulpicie
 Name:		tomboy
-Version:	0.10.2
-Release:	2
+Version:	0.12.1
+Release:	1
 License:	LGPL v2.1
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/tomboy/0.10/%{name}-%{version}.tar.bz2
-# Source0-md5:	89589a81e3cd09cf108bad3f11a4ecac
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/tomboy/0.12/%{name}-%{version}.tar.bz2
+# Source0-md5:	934d1258f855f04eff7d0fe8a976f6ad
 URL:		http://www.gnome.org/projects/tomboy/
-BuildRequires:	GConf2-devel >= 2.20.0
-BuildRequires:	atk-devel >= 1:1.20.0
+BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	dbus-glib-devel >= 0.73
 BuildRequires:	dotnet-galago-sharp-devel >= 0.5.0
-BuildRequires:	dotnet-gmime-sharp-devel >= 2.2.3
-BuildRequires:	dotnet-gnome-sharp-devel >= 2.16.0
-BuildRequires:	dotnet-gtk-sharp2-devel >= 2.10.2
+BuildRequires:	dotnet-gmime22-sharp-devel >= 2.2.23
+BuildRequires:	dotnet-gnome-desktop-sharp-devel >= 2.24.0
+BuildRequires:	dotnet-gnome-sharp-devel >= 2.24.0
+BuildRequires:	dotnet-gtk-sharp2-devel >= 2.12.2
 BuildRequires:	dotnet-ndesk-dbus-glib-sharp-devel >= 0.3
-BuildRequires:	gnome-common >= 2.20.0
-BuildRequires:	gnome-panel-devel >= 2.20.0
-BuildRequires:	gtk+2-devel >= 2:2.12.0
+BuildRequires:	gettext-devel
+BuildRequires:	gnome-common >= 2.24.0
+BuildRequires:	gnome-doc-utils >= 0.14.0
+BuildRequires:	gnome-panel-devel >= 2.24.0
+BuildRequires:	gtk+2-devel >= 2:2.14.0
 BuildRequires:	gtkspell-devel >= 2.0.11
-BuildRequires:	intltool >= 0.36.2
+BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libgnomeprintui-devel >= 2.18.1
 BuildRequires:	libtool
 BuildRequires:	mono-addins-devel >= 0.3
@@ -34,7 +36,6 @@ BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	scrollkeeper
-BuildRequires:	sed >= 4.0
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	scrollkeeper
@@ -59,15 +60,13 @@ pomysłów i informacji, z którymi musimy się zmagać każdego dnia.
 %prep
 %setup -q
 
-%{__sed} -i -e 's#sr\@Latn#sr\@latin#' po/LINGUAS
-mv po/sr\@{Latn,latin}.po
-
 %build
 %{__glib_gettextize}
 %{__intltoolize}
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure \
 	--with-dbus-service-dir="%{_datadir}/dbus-1/services" \
