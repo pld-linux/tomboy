@@ -4,12 +4,12 @@
 Summary:	Tomboy - a desktop note-taking application
 Summary(pl.UTF-8):	Tomboy - aplikacja do notatek na pulpicie
 Name:		tomboy
-Version:	0.12.1
-Release:	3
+Version:	0.12.2
+Release:	1
 License:	LGPL v2.1
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/tomboy/0.12/%{name}-%{version}.tar.bz2
-# Source0-md5:	934d1258f855f04eff7d0fe8a976f6ad
+# Source0-md5:	326ee483081ae43eaf87103f1e1153bc
 URL:		http://www.gnome.org/projects/tomboy/
 BuildRequires:	GConf2-devel >= 2.24.0
 BuildRequires:	autoconf
@@ -101,7 +101,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/%{name}/*.exe
+%attr(755,root,root) %{_libdir}/%{name}/*.exe*
 %attr(755,root,root) %{_libdir}/%{name}/*.so
 %{_datadir}/%{name}
 %dir %{_libdir}/%{name}
