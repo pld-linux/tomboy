@@ -101,15 +101,15 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/%{name}/*.exe
-%attr(755,root,root) %{_libdir}/%{name}/*.exe.mdb
-%attr(755,root,root) %{_libdir}/%{name}/*.so
-%{_datadir}/%{name}
 %dir %{_libdir}/%{name}
-%{_libdir}/%{name}/*.config
+%attr(755,root,root) %{_libdir}/%{name}/*.exe
+%{_libdir}/%{name}/*.exe.mdb
+%attr(755,root,root) %{_libdir}/%{name}/*.so
 %{_libdir}/%{name}/*.la
+%{_libdir}/%{name}/*.config
 %{_libdir}/%{name}/addins
 %{_libdir}/bonobo/servers/*
+%{_datadir}/%{name}
 %{_datadir}/dbus-1/services/*.service
 %{_desktopdir}/*.desktop
 %{_iconsdir}/hicolor/*/apps/*
