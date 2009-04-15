@@ -4,17 +4,16 @@
 Summary:	Tomboy - a desktop note-taking application
 Summary(pl.UTF-8):	Tomboy - aplikacja do notatek na pulpicie
 Name:		tomboy
-Version:	0.14.0
+Version:	0.14.1
 Release:	1
 License:	LGPL v2.1
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/tomboy/0.14/%{name}-%{version}.tar.bz2
-# Source0-md5:	75ab86e08d925c7ab74d88999e2121e7
+# Source0-md5:	d62cbf3de404899a27de4332327419f4
 URL:		http://www.gnome.org/projects/tomboy/
-BuildRequires:	GConf2-devel >= 2.24.0
+BuildRequires:	GConf2-devel >= 2.26.0
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	dbus-glib-devel >= 0.73
 BuildRequires:	dotnet-galago-sharp-devel >= 0.5.0
 BuildRequires:	dotnet-gmime-sharp-devel >= 2.2.23
 BuildRequires:	dotnet-gnome-desktop-sharp-devel >= 2.24.0
@@ -24,11 +23,9 @@ BuildRequires:	dotnet-ndesk-dbus-glib-sharp-devel >= 0.3
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
-BuildRequires:	gnome-panel-devel >= 2.24.0
-BuildRequires:	gtk+2-devel >= 2:2.14.0
+BuildRequires:	gtk+2-devel >= 2:2.16.0
 BuildRequires:	gtkspell-devel >= 2.0.11
 BuildRequires:	intltool >= 0.40.0
-BuildRequires:	libgnomeprintui-devel >= 2.18.1
 BuildRequires:	libtool
 BuildRequires:	mono-addins-devel >= 0.3
 BuildRequires:	mono-csharp >= 1.1.16.1
