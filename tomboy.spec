@@ -14,6 +14,7 @@ URL:		http://www.gnome.org/projects/tomboy/
 BuildRequires:	GConf2-devel >= 2.26.0
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	docbook-dtd412-xml
 BuildRequires:	dotnet-galago-sharp-devel >= 0.5.0
 BuildRequires:	dotnet-gmime-sharp-devel >= 2.2.23
 BuildRequires:	dotnet-gnome-desktop-sharp-devel >= 2.24.0
