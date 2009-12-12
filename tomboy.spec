@@ -4,19 +4,19 @@
 Summary:	Tomboy - a desktop note-taking application
 Summary(pl.UTF-8):	Tomboy - aplikacja do notatek na pulpicie
 Name:		tomboy
-Version:	0.14.1
+Version:	1.0.1
 Release:	1
 License:	LGPL v2.1
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/tomboy/0.14/%{name}-%{version}.tar.bz2
-# Source0-md5:	d62cbf3de404899a27de4332327419f4
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/tomboy/1.0/%{name}-%{version}.tar.bz2
+# Source0-md5:	80bdaee0cbaa360877c334e19661f69f
 URL:		http://www.gnome.org/projects/tomboy/
 BuildRequires:	GConf2-devel >= 2.26.0
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	dotnet-galago-sharp-devel >= 0.5.0
-BuildRequires:	dotnet-gmime-sharp-devel >= 2.2.23
+BuildRequires:	dotnet-gmime-sharp-devel >= 2.4.0
 BuildRequires:	dotnet-gnome-desktop-sharp-devel >= 2.24.0
 BuildRequires:	dotnet-gnome-sharp-devel >= 2.24.0
 BuildRequires:	dotnet-gtk-sharp2-devel >= 2.12.2
@@ -29,7 +29,7 @@ BuildRequires:	gtkspell-devel >= 2.0.11
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libtool
 BuildRequires:	mono-addins-devel >= 0.3
-BuildRequires:	mono-csharp >= 1.1.16.1
+BuildRequires:	mono-csharp >= 1.9.1
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
