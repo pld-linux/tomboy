@@ -4,12 +4,12 @@
 Summary:	Tomboy - a desktop note-taking application
 Summary(pl.UTF-8):	Tomboy - aplikacja do notatek na pulpicie
 Name:		tomboy
-Version:	1.0.1
-Release:	2
+Version:	1.2.1
+Release:	1
 License:	LGPL v2.1
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/tomboy/1.0/%{name}-%{version}.tar.bz2
-# Source0-md5:	80bdaee0cbaa360877c334e19661f69f
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/tomboy/1.2/%{name}-%{version}.tar.bz2
+# Source0-md5:	f5a6396b1b93919f461653446d2571c6
 URL:		http://www.gnome.org/projects/tomboy/
 BuildRequires:	GConf2-devel >= 2.26.0
 BuildRequires:	autoconf
@@ -24,7 +24,7 @@ BuildRequires:	dotnet-ndesk-dbus-glib-sharp-devel >= 0.3
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
-BuildRequires:	gtk+2-devel >= 2:2.16.0
+BuildRequires:	gtk+2-devel >= 2:2.20.0
 BuildRequires:	gtkspell-devel >= 2.0.11
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libtool
@@ -37,6 +37,7 @@ BuildRequires:	scrollkeeper
 Requires(post,postun):	gtk+2
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	scrollkeeper
+Requires(post,postun):	shared-mime-info
 Requires(post,preun):	GConf2
 Suggests:	galago-daemon
 # sr@Latn vs. sr@latin
@@ -58,8 +59,10 @@ pomysłów i informacji, z którymi musimy się zmagać każdego dnia.
 %prep
 %setup -q
 
+%{__sed} -i -e 's/en@shaw//' po/LINGUAS
+rm -f po/en@shaw.po
+
 %build
-%{__glib_gettextize}
 %{__intltoolize}
 %{__libtoolize}
 %{__aclocal}
@@ -68,6 +71,7 @@ pomysłów i informacji, z którymi musimy się zmagać każdego dnia.
 %{__automake}
 %configure \
 	--with-dbus-service-dir="%{_datadir}/dbus-1/services" \
+	--disable-update-mimedb \
 	--disable-schemas-install \
 	--disable-scrollkeeper
 %{__make}
@@ -87,11 +91,13 @@ rm -rf $RPM_BUILD_ROOT
 %gconf_schema_install tomboy.schemas
 %scrollkeeper_update_post
 %update_icon_cache hicolor
+%update_mime_database
 
 %preun
 %gconf_schema_uninstall tomboy.schemas
 
 %postun
+%update_mime_database
 %scrollkeeper_update_postun
 %update_icon_cache hicolor
 
@@ -110,7 +116,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}
 %{_datadir}/dbus-1/services/*.service
 %{_desktopdir}/*.desktop
-%{_iconsdir}/hicolor/*/apps/*
+%{_iconsdir}/hicolor/*/*/*
 %{_mandir}/man1/tomboy.1*
 %{_pkgconfigdir}/tomboy-addins.pc
 %{_sysconfdir}/gconf/schemas/tomboy.schemas
+%{_datadir}/mime/packages/tomboy.xml
