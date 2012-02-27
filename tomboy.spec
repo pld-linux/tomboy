@@ -15,12 +15,14 @@ BuildRequires:	GConf2-devel >= 2.26.0
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	docbook-dtd412-xml
-BuildRequires:	dotnet-galago-sharp-devel >= 0.5.0
+#BuildRequires:	dotnet-galago-sharp-devel >= 0.5.0
 BuildRequires:	dotnet-gmime-sharp-devel >= 2.4.0
 BuildRequires:	dotnet-gnome-desktop-sharp-devel >= 2.24.0
 BuildRequires:	dotnet-gnome-sharp-devel >= 2.24.0
 BuildRequires:	dotnet-gtk-sharp2-devel >= 2.12.2
 BuildRequires:	dotnet-ndesk-dbus-glib-sharp-devel >= 0.3
+BuildRequires:	dotnet-dbus-sharp-devel >= 0.4
+BuildRequires:	dotnet-dbus-sharp-glib-devel >= 0.3
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
@@ -73,7 +75,9 @@ rm -f po/en@shaw.po
 	--with-dbus-service-dir="%{_datadir}/dbus-1/services" \
 	--disable-update-mimedb \
 	--disable-schemas-install \
+	--disable-galago \
 	--disable-scrollkeeper
+
 %{__make} -j1
 
 %install
