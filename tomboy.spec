@@ -23,7 +23,7 @@ BuildRequires:	dotnet-gtk-sharp2-devel >= 2.12.2
 BuildRequires:	dotnet-ndesk-dbus-glib-sharp-devel >= 0.3
 BuildRequires:	dotnet-dbus-sharp-devel >= 0.4
 BuildRequires:	dotnet-dbus-sharp-glib-devel >= 0.3
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-doc-utils >= 0.14.0
 BuildRequires:	gtk+2-devel >= 2:2.20.0
