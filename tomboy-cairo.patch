@@ -1,0 +1,11 @@
+--- tomboy-1.8.3/configure.in.orig	2022-04-25 22:53:59.588764498 +0200
++++ tomboy-1.8.3/configure.in	2022-04-26 06:22:13.193246775 +0200
+@@ -218,6 +218,8 @@ do
+ 	AC_MSG_CHECKING([for Mono 2.0 GAC for $asm.dll])
+ 	if test \
+ 		-e "$($PKG_CONFIG --variable=libdir mono)/mono/2.0/$asm.dll" -o \
++		-e "$($PKG_CONFIG --variable=libdir mono)/mono/2.0-api/$asm.dll" -o \
++		-e "$($PKG_CONFIG --variable=prefix mono)/lib/mono/2.0-api/$asm.dll" -o \
+ 		-e "$($PKG_CONFIG --variable=prefix mono)/lib/mono/2.0/$asm.dll"; \
+ 		then \
+ 		AC_MSG_RESULT([found])

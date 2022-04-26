@@ -1,0 +1,11 @@
+--- tomboy-1.8.3/Tomboy/Makefile.am.orig	2011-06-25 17:59:45.000000000 +0200
++++ tomboy-1.8.3/Tomboy/Makefile.am	2022-04-26 06:21:42.296824140 +0200
+@@ -208,7 +208,7 @@ $(PANEL_WRAPPER): $(srcdir)/$(PANEL_WRAP
+ 	    < $< > $@
+ 	chmod +x $(PANEL_WRAPPER)
+ 
+-$(TARGET).config: $(srcdir)/$(TARGET_NAME$).config.in Makefile
++$(TARGET).config: $(srcdir)/$(TARGET_NAME).config.in Makefile
+ 	sed -e "s|\@pkglibdir\@|$(pkglibdir)|" \
+ 	    < $< > $@
+ 
