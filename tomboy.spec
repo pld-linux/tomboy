@@ -1,12 +1,12 @@
 Summary:	Tomboy - a desktop note-taking application
 Summary(pl.UTF-8):	Tomboy - aplikacja do notatek na pulpicie
 Name:		tomboy
-Version:	1.8.3
-Release:	2
+Version:	1.14.1
+Release:	1
 License:	LGPL v2.1
 Group:		X11/Applications
-Source0:	https://download.gnome.org/sources/tomboy/1.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	760d343acc6a603ccaa1f50e4aac58af
+Source0:	https://download.gnome.org/sources/tomboy/1.14/%{name}-%{version}.tar.xz
+# Source0-md5:	969e7b48b19788899a410e9e757feba1
 Patch0:		%{name}-dbus.patch
 Patch1:		%{name}-cairo.patch
 Patch2:		%{name}-make.patch
@@ -18,10 +18,10 @@ BuildRequires:	automake
 BuildRequires:	docbook-dtd412-xml
 #BuildRequires:	dotnet-galago-sharp-devel >= 0.5.0
 BuildRequires:	dotnet-gconf-sharp-devel >= 2.24.0
-BuildRequires:	dotnet-gmime-sharp-devel >= 2.4.0
+BuildRequires:	dotnet-gmime-sharp-devel >= 2.6.0
 BuildRequires:	dotnet-gtk-sharp2-devel >= 2.12.2
-BuildRequires:	dotnet-dbus-sharp-devel >= 0.4
-BuildRequires:	dotnet-dbus-sharp-glib-devel >= 0.3
+BuildRequires:	dotnet-dbus-sharp-devel >= 0.8
+BuildRequires:	dotnet-dbus-sharp-glib-devel >= 0.6
 BuildRequires:	gettext-tools
 BuildRequires:	gnome-common >= 2.24.0
 BuildRequires:	gnome-doc-utils >= 0.17.3
@@ -34,7 +34,9 @@ BuildRequires:	mono-addins-gui-devel >= 0.3
 BuildRequires:	mono-csharp >= 1.9.1
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(find_lang) >= 1.23
-BuildRequires:	rpmbuild(macros) >= 1.311
+BuildRequires:	rpmbuild(macros) >= 2.015
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	shared-mime-info

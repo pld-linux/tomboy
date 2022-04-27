@@ -9,14 +9,14 @@
  AC_SUBST(DBUS_LIBS)
  
  #
---- tomboy-1.8.3/Tomboy/RemoteControlProxy.cs.orig	2011-06-21 02:55:00.000000000 +0200
-+++ tomboy-1.8.3/Tomboy/RemoteControlProxy.cs	2022-04-26 06:23:29.941836511 +0200
-@@ -52,7 +52,7 @@ namespace Tomboy
- 			BusG.Init ();
+--- tomboy-1.14.1/Tomboy/RemoteControlProxy.cs.orig	2022-04-27 20:12:19.361843860 +0200
++++ tomboy-1.14.1/Tomboy/RemoteControlProxy.cs	2022-04-27 20:15:33.347459616 +0200
+@@ -55,7 +55,7 @@ namespace Tomboy
+ 				return null;
  
  			RemoteControl remote_control = new RemoteControl (manager);
 -			Bus.Session.Register (Namespace,
 +			Bus.Session.Register (
  			                      new ObjectPath (Path),
  			                      remote_control);
- 
+ 			return remote_control;
